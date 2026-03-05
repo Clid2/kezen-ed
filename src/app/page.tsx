@@ -875,7 +875,7 @@ export default function Page() {
           <div className="border-b border-white/[0.05]">
             <div className="max-w-7xl mx-auto px-5 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
               <p className="text-[13px] text-gray-500">Есть вопросы? Свяжитесь с нами напрямую.</p>
-              <a href="https://wa.me/77007380691" target="_blank" rel="noopener noreferrer" className="text-[14px] font-bold text-white hover:text-blue-400 transition-colors">
+              <a href="https://wa.me/77076957688" target="_blank" rel="noopener noreferrer" className="text-[14px] font-bold text-white hover:text-blue-400 transition-colors">
                 +7 (700) 738-06-91
               </a>
             </div>
@@ -908,9 +908,9 @@ export default function Page() {
               <div>
                 <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.18em] mb-5">Контакты</p>
                 <div className="flex flex-col gap-3">
-                  <a href="https://wa.me/+77007380691" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/+77076957688" target="_blank" rel="noopener noreferrer"
                     className="text-[13px] text-gray-500 hover:text-white transition-colors">WhatsApp</a>
-                  <a href="https://wa.me/77007380691" target="_blank" rel="noopener noreferrer" className="text-[13px] text-gray-500 hover:text-white transition-colors">
+                  <a href="https://wa.me/77076957688" target="_blank" rel="noopener noreferrer" className="text-[13px] text-gray-500 hover:text-white transition-colors">
                     +7 (700) 738-06-91
                   </a>
                 </div>
