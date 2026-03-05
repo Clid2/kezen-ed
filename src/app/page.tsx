@@ -80,20 +80,27 @@ const WaIcon = () => (
 );
 
 const FeatureIcons = [
-  <svg key="0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>,
-  <svg key="1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>,
-  <svg key="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9H4a2 2 0 01-2-2V5h4m14 4h2a2 2 0 002-2V5h-4M12 17v4M8 21h8M6 4h12v8a6 6 0 01-12 0V4z"/></svg>,
-  <svg key="3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>,
+  // Diagnostic
+  <svg key="0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v3l2 2"/></svg>,
+  // Mistake bank
+  <svg key="1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12h6M9 16h6M9 8h6M5 3h14a2 2 0 012 2v16l-3-2-3 2-3-2-3 2-3-2V5a2 2 0 012-2z"/></svg>,
+  // Mock tests
+  <svg key="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>,
+  // Dashboard
+  <svg key="3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>,
+  // Parent reports
   <svg key="4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>,
-  <svg key="5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>,
+  // Guarantee
+  <svg key="5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
 ];
 
 /* ─── Data ───────────────────────────────────────────────────────────────── */
 const NAV = [
-  { href: "#platforms", label: "Платформы"   },
-  { href: "#features",  label: "Возможности" },
-  { href: "#stats",     label: "Статистика"  },
-  { href: "#apply",     label: "Заявка"      },
+  { href: "#platforms", label: "Платформы"  },
+  { href: "#system",    label: "Система"    },
+  { href: "#guarantee", label: "Гарантия"   },
+  { href: "#teachers",  label: "Команда"    },
+  { href: "#apply",     label: "Заявка"     },
 ];
 
 const PLATFORMS = [
@@ -103,12 +110,35 @@ const PLATFORMS = [
 ];
 
 const FEATURES = [
-  { title: "Аналитика в реальном времени",  desc: "Детальная карта прогресса, статистика ошибок и еженедельный отчёт по каждому навыку."       },
-  { title: "ИИ-обратная связь",              desc: "Персонализированные рекомендации после каждого теста — конкретные шаги, не общие советы."   },
-  { title: "Таблицы лидеров",               desc: "Соревнуйтесь с другими студентами и отслеживайте своё место в рейтинге группы."              },
-  { title: "Любое устройство",              desc: "Полноценная работа на компьютере, планшете и телефоне — без потери функциональности."        },
-  { title: "Опытные преподаватели",         desc: "Специалисты по SAT и IELTS с опытом подготовки студентов к топовым университетам."           },
-  { title: "Проверенные результаты",        desc: "1 500+ студентов достигли целевого балла. Гарантия повторного курса если цель не достигнута." },
+  { title: "Диагностический тест",       desc: "Выявляем слабые места ещё до старта — строим программу именно под вас, не по шаблону."         },
+  { title: "Банк ошибок",                desc: "Каждая ошибка из моктестов фиксируется: тема, тип вопроса, паттерн. Формируем личный профиль."  },
+  { title: "Еженедельные моктесты",      desc: "Полный тест каждую неделю — отслеживаем рост балла, дисциплину и слабые зоны."                  },
+  { title: "Dashboard студента",         desc: "Прогресс, история баллов, ближайшие занятия и слабые области — всё в одном месте."              },
+  { title: "Отчёты для родителей",       desc: "Ежемесячный звонок: посещаемость, домашние задания, результаты тестов, комментарий учителя."    },
+  { title: "Гарантия результата",        desc: "Гарантируем рост балла SAT минимум на X очков. Не достигли — возврат или бесплатное продолжение."},
+];
+
+/* ─── New section data ───────────────────────────────────────────────────── */
+const GROUPS = [
+  { level: "Beginner",      range: "SAT 900–1100",  color: "#6b7280" },
+  { level: "Intermediate",  range: "SAT 1100–1250", color: "#3b82f6" },
+  { level: "Advanced",      range: "SAT 1250+",     color: "#a855f7" },
+];
+
+const COURSE_FORMATS = [
+  {
+    title: "36 занятий",
+    items: ["24 структурированных урока", "12 занятий — слабые темы, прошлые тесты и вопросы студентов"],
+  },
+  {
+    title: "20 занятий",
+    items: ["Диагностический тест", "Определение слабых тем", "Целевая практика", "Разбор вопросов и прошлых тестов"],
+  },
+];
+
+const TEACHER_BONUSES = [
+  { amount: "30 000 ₸", reason: "За достижение гарантированного результата студентом" },
+  { amount: "20 000 ₸", reason: "За значительный рост балла или очень высокий итоговый результат" },
 ];
 
 const STATS_DATA = [
@@ -121,7 +151,7 @@ const STATS_DATA = [
 const MARQUEE_ITEMS = [
   "SAT 1550", "IELTS 8.5", "NYU", "University of Edinburgh",
   "Болашак", "SAT 1490", "IELTS 8.0", "Imperial College",
-  "1500+ студентов", "SAT 1520", "IELTS 7.5", "AUES",
+  "1500+ студентов", "SAT 1520", "IELTS 7.5", "KazNU",
 ];
 
 /* ─── Stat Card ──────────────────────────────────────────────────────────── */
@@ -357,7 +387,7 @@ function LeadSection() {
                       )}
                     </button>
 
-                    <a href="https://wa.me/77076957688" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/87076956788" target="_blank" rel="noopener noreferrer"
                       className="btn-outline w-full flex items-center justify-center gap-2.5 py-4 rounded-xl text-[14px] font-semibold text-gray-300">
                       <WaIcon /> WhatsApp
                     </a>
@@ -866,6 +896,357 @@ export default function Page() {
             </div>
           </section>
 
+          {/* ── LEARNING SYSTEM ───────────────────────────────────────── */}
+          <section id="system" className="py-28 sm:py-36 border-t border-white/[0.05] scroll-mt-16">
+            <div className="max-w-7xl mx-auto px-5 sm:px-10">
+              <Reveal>
+                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-blue-500
+                  border border-blue-500/25 bg-blue-500/[0.08] px-3.5 py-1.5 rounded-full mb-7">
+                  Система обучения
+                </span>
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-6">
+                  Как работает<br /><span className="text-blue-500">наша система</span>
+                </h2>
+              </Reveal>
+              <Reveal delay={140}>
+                <p className="text-[16px] text-gray-400 mb-16 max-w-lg leading-relaxed">
+                  Каждый студент проходит структурированный путь от диагностики до целевого балла — без лишних шагов.
+                </p>
+              </Reveal>
+
+              {/* 4-step flow */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-20">
+                {[
+                  { n: "01", title: "Диагностика",       desc: "Выявляем слабые места. Определяем уровень и собираем профиль ошибок." },
+                  { n: "02", title: "Группировка",        desc: "Распределяем в группу по прогнозируемому баллу: Beginner, Intermediate или Advanced." },
+                  { n: "03", title: "Системная работа",   desc: "24 структурных урока + 12 занятий по слабым темам, прошлым тестам и вопросам." },
+                  { n: "04", title: "Контроль и рост",    desc: "Еженедельный моктест, банк ошибок, дашборд и ежемесячный отчёт родителям." },
+                ].map((s, i) => (
+                  <Reveal key={s.n} delay={i * 80} className="h-full">
+                    <div className="f-card rounded-2xl p-7 h-full group relative overflow-hidden">
+                      <div className="absolute top-5 right-5 text-[40px] font-black text-white/[0.04] select-none leading-none">{s.n}</div>
+                      <div className="text-[11px] font-bold text-blue-500 tracking-widest mb-4">{s.n}</div>
+                      <h3 className="text-[16px] font-bold text-white mb-2.5">{s.title}</h3>
+                      <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+
+              {/* Placement groups */}
+              <Reveal delay={100}>
+                <div className="rounded-2xl border border-white/[0.06] overflow-hidden"
+                  style={{ background: "rgba(255,255,255,0.018)" }}>
+                  <div className="px-8 pt-8 pb-6 border-b border-white/[0.05]">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2">Распределение по уровням</p>
+                    <h3 className="text-[22px] font-extrabold text-white">Система Placement</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/[0.05]">
+                    {GROUPS.map((g) => (
+                      <div key={g.level} className="px-8 py-7">
+                        <div className="h-1 w-10 rounded-full mb-5" style={{ background: g.color }} />
+                        <div className="text-[17px] font-extrabold text-white mb-1">{g.level}</div>
+                        <div className="text-[13px] font-semibold mb-4" style={{ color: g.color }}>{g.range}</div>
+                        {g.level === "Advanced" && (
+                          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-purple-400
+                            border border-purple-500/30 bg-purple-500/[0.08] px-2.5 py-1 rounded-md">
+                            Express группы
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Course formats */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                {COURSE_FORMATS.map((f, i) => (
+                  <Reveal key={f.title} delay={i * 100}>
+                    <div className="f-card rounded-2xl p-8 h-full">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-3">Формат курса</p>
+                      <h3 className="text-[24px] font-extrabold text-white mb-6">{f.title}</h3>
+                      <ul className="space-y-3">
+                        {f.items.map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-[13px] text-gray-400">
+                            <span className="mt-0.5 shrink-0 h-4 w-4 rounded-full bg-blue-500/15 border border-blue-500/30 flex items-center justify-center">
+                              <svg width="7" height="6" viewBox="0 0 7 6" fill="none">
+                                <path d="M1 3l1.5 1.5L6 1" stroke="#3b82f6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+
+              {/* SAT Weekend Bootcamp */}
+              <Reveal delay={100} className="mt-8">
+                <div className="relative rounded-2xl p-8 overflow-hidden"
+                  style={{ background: "rgba(37,99,235,0.07)", border: "1px solid rgba(59,130,246,0.2)" }}>
+                  <div aria-hidden className="absolute -right-20 -top-20 w-64 h-64 rounded-full pointer-events-none"
+                    style={{ background: "radial-gradient(ellipse, rgba(59,130,246,0.12) 0%, transparent 70%)" }} />
+                  <div className="relative grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
+                    <div>
+                      <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400
+                        border border-blue-500/30 bg-blue-500/[0.1] px-3 py-1 rounded-full mb-5">
+                        SAT Weekend Bootcamp
+                      </span>
+                      <h3 className="text-[22px] font-extrabold text-white mb-3">90 минут каждую неделю</h3>
+                      <p className="text-[14px] text-gray-400 leading-relaxed mb-4">
+                        Ловушки SAT, тайм-менеджмент, math shortcuts, reading стратегии, Desmos calculator tricks.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {["SAT ловушки", "Math shortcuts", "Reading стратегии", "Desmos tricks", "Тайм-менеджмент"].map((t) => (
+                          <span key={t} className="text-[11px] font-semibold text-blue-400 border border-blue-500/25 bg-blue-500/[0.08] px-2.5 py-1 rounded-md">{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="shrink-0 text-center">
+                      <div className="text-[13px] text-gray-500 mb-1 uppercase tracking-widest font-semibold">Для студентов курса</div>
+                      <div className="text-[36px] font-black text-white">Бесплатно</div>
+                      <div className="text-[13px] text-gray-500 mt-1">Внешние — 5 000 ₸</div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </section>
+
+          {/* ── GUARANTEE ────────────────────────────────────────────────── */}
+          <section id="guarantee" className="py-28 sm:py-36 border-t border-white/[0.05] scroll-mt-16 relative overflow-hidden">
+            <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[700px] h-[400px] rounded-full"
+                style={{ background: "radial-gradient(ellipse, rgba(29,78,216,0.13) 0%, transparent 68%)", filter: "blur(90px)" }} />
+            </div>
+            <div className="relative max-w-7xl mx-auto px-5 sm:px-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                  <Reveal>
+                    <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-blue-500
+                      border border-blue-500/25 bg-blue-500/[0.08] px-3.5 py-1.5 rounded-full mb-7">
+                      Гарантия
+                    </span>
+                  </Reveal>
+                  <Reveal delay={80}>
+                    <h2 className="text-[36px] sm:text-[52px] font-extrabold tracking-tight leading-[1.04] text-white mb-6">
+                      Мы гарантируем<br /><span className="text-blue-500">рост балла SAT</span>
+                    </h2>
+                  </Reveal>
+                  <Reveal delay={140}>
+                    <p className="text-[16px] text-gray-400 leading-relaxed mb-10">
+                      Если студент выполняет все требования программы и не достигает гарантированного результата —
+                      мы возвращаем деньги или продолжаем обучение бесплатно.
+                    </p>
+                  </Reveal>
+                  <Reveal delay={200}>
+                    <div className="flex flex-col gap-4">
+                      {[
+                        { icon: "↩", label: "Возврат средств", desc: "Полный возврат если условия выполнены, а результат не достигнут" },
+                        { icon: "∞", label: "Бесплатное продолжение", desc: "Продолжаем обучение за наш счёт до достижения цели" },
+                      ].map((opt) => (
+                        <div key={opt.label} className="flex items-start gap-4 p-5 rounded-xl"
+                          style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                          <div className="shrink-0 h-10 w-10 rounded-xl bg-blue-500/15 border border-blue-500/25 flex items-center justify-center text-blue-400 text-[18px] font-bold">
+                            {opt.icon}
+                          </div>
+                          <div>
+                            <div className="text-[14px] font-bold text-white mb-1">{opt.label}</div>
+                            <div className="text-[13px] text-gray-500">{opt.desc}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </Reveal>
+                </div>
+
+                {/* Referral card */}
+                <Reveal delay={100}>
+                  <div className="rounded-2xl p-8"
+                    style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 24px 64px rgba(0,0,0,0.4)" }}>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-6">Реферальная программа</p>
+                    <div className="text-[52px] font-black text-white leading-none mb-2">
+                      20 000 <span className="text-blue-500 text-[36px]">₸</span>
+                    </div>
+                    <p className="text-[15px] text-gray-400 mb-8 leading-relaxed">
+                      Приведи друга — получи реферальный бонус после его зачисления на курс.
+                    </p>
+                    <div className="space-y-4">
+                      {[
+                        "Друг оставляет заявку",
+                        "Зачисляется на курс",
+                        "Ты получаешь 20 000 ₸",
+                      ].map((step, i) => (
+                        <div key={step} className="flex items-center gap-3">
+                          <span className="shrink-0 h-6 w-6 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-[11px] font-bold flex items-center justify-center">
+                            {i + 1}
+                          </span>
+                          <span className="text-[13px] text-gray-400">{step}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <a href="https://wa.me/87076956788" target="_blank" rel="noopener noreferrer"
+                      className="mt-8 btn-blue w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-[13px] font-bold text-white">
+                      <WaIcon /> Узнать подробнее
+                    </a>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </section>
+
+          {/* ── GAMIFICATION ─────────────────────────────────────────────── */}
+          <section className="py-28 sm:py-36 border-t border-white/[0.05]">
+            <div className="max-w-7xl mx-auto px-5 sm:px-10">
+              <Reveal>
+                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-blue-500
+                  border border-blue-500/25 bg-blue-500/[0.08] px-3.5 py-1.5 rounded-full mb-7">
+                  Геймификация
+                </span>
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="text-[36px] sm:text-[52px] font-extrabold tracking-tight leading-[1.04] text-white mb-14">
+                  Учёба, которая<br /><span className="text-blue-500">мотивирует</span>
+                </h2>
+              </Reveal>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Points */}
+                <Reveal delay={0} className="h-full">
+                  <div className="f-card rounded-2xl p-7 h-full">
+                    <div className="text-2xl mb-5">🏆</div>
+                    <h3 className="text-[16px] font-bold text-white mb-3">Система очков</h3>
+                    <p className="text-[13px] text-gray-500 mb-5">Зарабатывай очки за домашние задания, посещаемость и рост баллов.</p>
+                    <div className="space-y-2">
+                      {["Выполнение домашних заданий", "Посещение занятий", "Рост балла на моктесте"].map((item) => (
+                        <div key={item} className="flex items-center gap-2.5 text-[12px] text-gray-500">
+                          <span className="h-1 w-1 rounded-full bg-blue-500/60 shrink-0" />{item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+
+                {/* Rewards */}
+                <Reveal delay={80} className="h-full">
+                  <div className="f-card rounded-2xl p-7 h-full">
+                    <div className="text-2xl mb-5">🎁</div>
+                    <h3 className="text-[16px] font-bold text-white mb-3">Призы за очки</h3>
+                    <p className="text-[13px] text-gray-500 mb-5">Обменивай накопленные очки на реальные награды.</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        { icon: "👕", label: "Мерч"    },
+                        { icon: "🎧", label: "AirPods" },
+                        { icon: "📱", label: "iPad"    },
+                      ].map((r) => (
+                        <div key={r.label} className="text-center p-3 rounded-xl"
+                          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                          <div className="text-xl mb-1">{r.icon}</div>
+                          <div className="text-[11px] text-gray-500 font-semibold">{r.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+
+                {/* Leaderboard */}
+                <Reveal delay={160} className="h-full">
+                  <div className="f-card rounded-2xl p-7 h-full">
+                    <div className="text-2xl mb-5">📊</div>
+                    <h3 className="text-[16px] font-bold text-white mb-3">Рейтинг студентов</h3>
+                    <p className="text-[13px] text-gray-500 mb-6">Таблица лучших — соревнование мотивирует лучше любого расписания.</p>
+                    <div className="space-y-2.5">
+                      {[
+                        { rank: "01", name: "Айгерим К.",  score: "+340 pts" },
+                        { rank: "02", name: "Данияр М.",   score: "+290 pts" },
+                        { rank: "03", name: "Мадина Т.",   score: "+260 pts" },
+                      ].map((s) => (
+                        <div key={s.rank} className="flex items-center gap-3 p-2.5 rounded-lg"
+                          style={{ background: "rgba(255,255,255,0.03)" }}>
+                          <span className="text-[10px] font-black text-gray-600 w-5">{s.rank}</span>
+                          <span className="text-[13px] text-gray-400 flex-1">{s.name}</span>
+                          <span className="text-[12px] font-bold text-blue-400">{s.score}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </section>
+
+          {/* ── TEACHERS ─────────────────────────────────────────────────── */}
+          <section id="teachers" className="py-28 sm:py-36 border-t border-white/[0.05] scroll-mt-16">
+            <div className="max-w-7xl mx-auto px-5 sm:px-10">
+              <Reveal>
+                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-blue-500
+                  border border-blue-500/25 bg-blue-500/[0.08] px-3.5 py-1.5 rounded-full mb-7">
+                  Команда
+                </span>
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="text-[36px] sm:text-[52px] font-extrabold tracking-tight leading-[1.04] text-white mb-6">
+                  Учителя мотивированы<br /><span className="text-blue-500">твоим результатом</span>
+                </h2>
+              </Reveal>
+              <Reveal delay={140}>
+                <p className="text-[16px] text-gray-400 mb-14 max-w-lg leading-relaxed">
+                  Performance-based система: оклад + бонусы за результаты студентов. Чем лучше растёт твой балл — тем больше зарабатывает учитель.
+                </p>
+              </Reveal>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                {/* Bonus structure */}
+                <Reveal delay={0}>
+                  <div className="f-card rounded-2xl p-8 h-full">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-6">Бонусная структура</p>
+                    <div className="space-y-4">
+                      {TEACHER_BONUSES.map((b) => (
+                        <div key={b.amount} className="flex items-start gap-5 p-5 rounded-xl"
+                          style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                          <div className="shrink-0 text-[22px] font-black text-blue-400 leading-none">{b.amount}</div>
+                          <div className="text-[13px] text-gray-400 leading-relaxed">{b.reason}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+
+                {/* Teacher leaderboard */}
+                <Reveal delay={100}>
+                  <div className="f-card rounded-2xl p-8 h-full">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-6">Рейтинг учителей</p>
+                    <p className="text-[13px] text-gray-500 mb-6 leading-relaxed">
+                      Ранжируются по росту баллов студентов, выполнению гарантий, обратной связи и завершению программ.
+                    </p>
+                    <div className="space-y-3 mb-6">
+                      {["Топовые бонусы и подарки", "Возможность вести Advanced группы", "Ежемесячный Teacher Challenge"].map((item) => (
+                        <div key={item} className="flex items-center gap-3 text-[13px] text-gray-400">
+                          <span className="shrink-0 h-4 w-4 rounded-full bg-blue-500/15 border border-blue-500/30 flex items-center justify-center">
+                            <svg width="7" height="6" viewBox="0 0 7 6" fill="none">
+                              <path d="M1 3l1.5 1.5L6 1" stroke="#3b82f6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </span>
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="rounded-xl p-4"
+                      style={{ background: "rgba(37,99,235,0.08)", border: "1px solid rgba(59,130,246,0.2)" }}>
+                      <p className="text-[12px] text-gray-500 mb-1 font-semibold uppercase tracking-wider">Monthly Challenge</p>
+                      <p className="text-[13px] text-gray-400">Наибольший рост балла, число успехов, лучшая группа. Призы: AirPods, iPad, гаджеты, кэш.</p>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </section>
+
           {/* ── LEAD FORM ─────────────────────────────────────────────── */}
           <LeadSection />
         </main>
@@ -875,8 +1256,8 @@ export default function Page() {
           <div className="border-b border-white/[0.05]">
             <div className="max-w-7xl mx-auto px-5 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
               <p className="text-[13px] text-gray-500">Есть вопросы? Свяжитесь с нами напрямую.</p>
-              <a href="https://wa.me/77076957688" target="_blank" rel="noopener noreferrer" className="text-[14px] font-bold text-white hover:text-blue-400 transition-colors">
-                +7 (700) 738-06-91
+              <a href="https://wa.me/87076956788" target="_blank" rel="noopener noreferrer" className="text-[14px] font-bold text-white hover:text-blue-400 transition-colors">
+                +7 (707) 695-67-88
               </a>
             </div>
           </div>
@@ -908,10 +1289,10 @@ export default function Page() {
               <div>
                 <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.18em] mb-5">Контакты</p>
                 <div className="flex flex-col gap-3">
-                  <a href="https://wa.me/+77076957688" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/87076956788" target="_blank" rel="noopener noreferrer"
                     className="text-[13px] text-gray-500 hover:text-white transition-colors">WhatsApp</a>
-                  <a href="https://wa.me/77076957688" target="_blank" rel="noopener noreferrer" className="text-[13px] text-gray-500 hover:text-white transition-colors">
-                    +7 (700) 738-06-91
+                  <a href="https://wa.me/87076956788" target="_blank" rel="noopener noreferrer" className="text-[13px] text-gray-500 hover:text-white transition-colors">
+                    +7 (707) 695-67-88
                   </a>
                 </div>
               </div>
