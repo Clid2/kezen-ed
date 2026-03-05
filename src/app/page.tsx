@@ -121,7 +121,7 @@ const STATS_DATA = [
 const MARQUEE_ITEMS = [
   "SAT 1550", "IELTS 8.5", "NYU", "University of Edinburgh",
   "Болашак", "SAT 1490", "IELTS 8.0", "Imperial College",
-  "1500+ студентов", "SAT 1520", "IELTS 7.5", "KazNU",
+  "1500+ студентов", "SAT 1520", "IELTS 7.5", "AUES",
 ];
 
 /* ─── Stat Card ──────────────────────────────────────────────────────────── */
@@ -357,7 +357,7 @@ function LeadSection() {
                       )}
                     </button>
 
-                    <a href="https://wa.me/+77007380691" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/77076957688" target="_blank" rel="noopener noreferrer"
                       className="btn-outline w-full flex items-center justify-center gap-2.5 py-4 rounded-xl text-[14px] font-semibold text-gray-300">
                       <WaIcon /> WhatsApp
                     </a>
