@@ -80,17 +80,11 @@ const WaIcon = () => (
 );
 
 const FeatureIcons = [
-  // Diagnostic
   <svg key="0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v3l2 2"/></svg>,
-  // Mistake bank
   <svg key="1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12h6M9 16h6M9 8h6M5 3h14a2 2 0 012 2v16l-3-2-3 2-3-2-3 2-3-2V5a2 2 0 012-2z"/></svg>,
-  // Mock tests
   <svg key="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>,
-  // Dashboard
   <svg key="3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>,
-  // Parent reports
   <svg key="4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>,
-  // Guarantee
   <svg key="5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
 ];
 
@@ -118,7 +112,6 @@ const FEATURES = [
   { title: "Гарантия результата",        desc: "Гарантируем рост балла SAT минимум на X очков. Не достигли — возврат или бесплатное продолжение."},
 ];
 
-/* ─── New section data ───────────────────────────────────────────────────── */
 const GROUPS = [
   { level: "Beginner",      range: "SAT 900–1100",  color: "#6b7280" },
   { level: "Intermediate",  range: "SAT 1100–1250", color: "#3b82f6" },
@@ -154,6 +147,52 @@ const MARQUEE_ITEMS = [
   "1500+ студентов", "SAT 1520", "IELTS 7.5", "KazNU",
 ];
 
+/* ─── Logo Component ─────────────────────────────────────────────────────── */
+// The logo PNG files have large black padding around the actual logo content.
+// This component renders the image at a much larger size inside a clipped
+// container so only the logo content is visible, without any black border.
+function LogoImage({
+  width = 140,
+  height = 44,
+  renderSize = 390,
+  offsetLeft = -95,
+}: {
+  width?: number;
+  height?: number;
+  renderSize?: number;
+  offsetLeft?: number;
+}) {
+  return (
+    <div
+      style={{
+        position: "relative",
+        width,
+        height,
+        overflow: "hidden",
+        flexShrink: 0,
+      }}
+    >
+      <Image
+        src="/Logo-white.png"
+        alt="KEZEN Education"
+        width={1080}
+        height={1080}
+        priority
+        unoptimized
+        style={{
+          position: "absolute",
+          width: renderSize,
+          height: renderSize,
+          left: offsetLeft,
+          top: "50%",
+          transform: "translateY(-50%)",
+          objectFit: "contain",
+        }}
+      />
+    </div>
+  );
+}
+
 /* ─── Stat Card ──────────────────────────────────────────────────────────── */
 function StatCard({ end, suffix, label, active, delay }: {
   end: number; suffix: string; label: string; active: boolean; delay: number;
@@ -164,8 +203,7 @@ function StatCard({ end, suffix, label, active, delay }: {
     : v;
   return (
     <Reveal delay={delay} className="py-14 px-8 text-center">
-      <div className="text-[52px] md:text-[68px] font-extrabold leading-none tracking-tight tabular-nums"
-        >
+      <div className="text-[52px] md:text-[68px] font-extrabold leading-none tracking-tight tabular-nums">
         <span className="text-white">{display}</span>
         <span className="text-blue-500">{suffix}</span>
       </div>
@@ -204,7 +242,6 @@ function LeadSection() {
 
   return (
     <section id="apply" className="relative py-28 sm:py-36 border-t border-white/[0.05] overflow-hidden scroll-mt-16">
-      {/* Animated background rings */}
       <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
         {[0,1,2].map((i) => (
           <div key={i} className="absolute rounded-full border border-blue-500/[0.08]"
@@ -261,8 +298,6 @@ function LeadSection() {
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-5 sm:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-          {/* Left — copy */}
           <div className={visible ? "form-visible" : "opacity-0"} style={{ animationDelay: "0ms" }}>
             <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-blue-500
               border border-blue-500/25 bg-blue-500/[0.08] px-3.5 py-1.5 rounded-full mb-7">
@@ -293,7 +328,6 @@ function LeadSection() {
             </ul>
           </div>
 
-          {/* Right — form card */}
           <div className={visible ? "form-visible" : "opacity-0"} style={{ animationDelay: "150ms" }}>
             <div className="relative rounded-2xl p-8 sm:p-10"
               style={{
@@ -432,7 +466,6 @@ export default function Page() {
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
-  // Prevent browser/Next.js from auto-scrolling on HMR / route restore
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.history.scrollRestoration = "manual";
@@ -447,7 +480,6 @@ export default function Page() {
       <style>{`
         html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
-        /* Noise */
         body::after {
           content: '';
           position: fixed; inset: 0;
@@ -456,7 +488,6 @@ export default function Page() {
           background-size: 160px; opacity: 0.025;
         }
 
-        /* Grid */
         .grid-bg {
           background-image:
             linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
@@ -464,7 +495,6 @@ export default function Page() {
           background-size: 64px 64px;
         }
 
-        /* Keyframes */
         @keyframes heroSlide {
           from { opacity: 0; transform: translateY(64px) skewY(2deg); clip-path: inset(100% 0 0 0); }
           to   { opacity: 1; transform: translateY(0)    skewY(0);     clip-path: inset(0% 0 0 0);  }
@@ -474,7 +504,6 @@ export default function Page() {
         @keyframes blink   { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
         @keyframes float   { 0%,100%{transform:translateY(0px);} 50%{transform:translateY(-12px);} }
         @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-        @keyframes spin360 { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
         .h-line1 { animation: heroSlide 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
         .h-line2 { animation: heroSlide 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s both; }
@@ -492,7 +521,6 @@ export default function Page() {
         }
         .marquee-track:hover { animation-play-state: paused; }
 
-        /* Buttons */
         .btn-blue {
           background: #2563eb;
           transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
@@ -525,7 +553,6 @@ export default function Page() {
           box-shadow: 0 10px 36px rgba(22,163,74,0.45);
         }
 
-        /* Nav underline */
         .nav-a { position: relative; transition: color 0.2s; }
         .nav-a::after {
           content: ''; position: absolute; left:0; bottom:-3px;
@@ -534,7 +561,6 @@ export default function Page() {
         }
         .nav-a:hover::after { width: 100%; }
 
-        /* Platform cards */
         .p-card {
           border: 1px solid rgba(255,255,255,0.07);
           background: rgba(255,255,255,0.025);
@@ -547,7 +573,6 @@ export default function Page() {
           box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
 
-        /* Popular card glow border via box-shadow */
         .p-card-popular {
           border: 1px solid rgba(59,130,246,0.5);
           background: rgba(37,99,235,0.07);
@@ -559,7 +584,6 @@ export default function Page() {
           box-shadow: 0 0 0 1px rgba(59,130,246,0.4), 0 0 60px rgba(37,99,235,0.25), 0 20px 50px rgba(0,0,0,0.4);
         }
 
-        /* Feature cards */
         .f-card {
           border: 1px solid rgba(255,255,255,0.06);
           background: rgba(255,255,255,0.02);
@@ -573,7 +597,6 @@ export default function Page() {
         .f-icon { transition: color 0.3s, transform 0.3s; }
         .f-card:hover .f-icon { color: #60a5fa; transform: scale(1.15); }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #080808; }
         ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
@@ -599,8 +622,13 @@ export default function Page() {
         }}>
           <div className="max-w-7xl mx-auto px-5 sm:px-10 h-16 flex items-center justify-between gap-6">
             <a href="#" className="shrink-0 select-none">
-              <Image src="/Logo white.png" alt="KEZEN ED" width={136} height={40}
-                className="h-8 w-auto object-contain" priority />
+              {/*
+                Logo fix: the PNG is a 1080x1080 square with large black padding.
+                We render it oversized (390x390) inside a small clipped container (140x44)
+                and shift it left so the actual logo content (center-right of the square)
+                fills the visible area perfectly.
+              */}
+              <LogoImage width={140} height={44} renderSize={390} offsetLeft={-95} />
             </a>
 
             <nav className="hidden md:flex items-center gap-7">
@@ -650,7 +678,6 @@ export default function Page() {
           <section className="relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden">
             <div className="grid-bg absolute inset-0" />
 
-            {/* Glows */}
             <div aria-hidden className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[480px] rounded-full pointer-events-none"
               style={{ background: "radial-gradient(ellipse, rgba(30,58,138,0.22) 0%, transparent 68%)", filter: "blur(48px)" }} />
             <div aria-hidden className="absolute bottom-0 -right-20 w-[400px] h-[400px] rounded-full pointer-events-none"
@@ -664,8 +691,7 @@ export default function Page() {
                   <div className="h-1.5 w-1.5 rounded-full bg-green-400 blink" />
                   <span className="text-[11px] text-gray-500 font-semibold uppercase tracking-wider">Прогресс</span>
                 </div>
-                <div className="text-[36px] font-extrabold text-white leading-none mb-1"
-                  >+340</div>
+                <div className="text-[36px] font-extrabold text-white leading-none mb-1">+340</div>
                 <div className="text-[12px] text-blue-400 mb-4">баллов SAT за 3 мес.</div>
                 <div className="h-1.5 rounded-full bg-white/8 overflow-hidden">
                   <div className="h-full w-[78%] rounded-full bg-blue-500"
@@ -679,7 +705,6 @@ export default function Page() {
             </div>
 
             <div className="relative max-w-7xl mx-auto px-5 sm:px-10 py-24 md:py-28">
-              {/* Badge */}
               <div className="h-badge inline-flex items-center gap-2.5 mb-9 px-4 py-2 rounded-full
                 border border-white/10 bg-white/[0.04] backdrop-blur-sm">
                 <span className="blink h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
@@ -688,7 +713,6 @@ export default function Page() {
                 </span>
               </div>
 
-              {/* Heading */}
               <div className="overflow-hidden">
                 <div className="h-line1 text-[60px] sm:text-[90px] lg:text-[116px] font-black leading-[0.9] tracking-tighter text-white">
                   KEZEN
@@ -716,7 +740,6 @@ export default function Page() {
                 </a>
               </div>
 
-              {/* Quick stats */}
               <div className="h-stats inline-grid grid-cols-3 rounded-2xl overflow-hidden
                 border border-white/[0.07]"
                 style={{ background: "rgba(255,255,255,0.025)", backdropFilter: "blur(12px)" }}>
@@ -727,8 +750,7 @@ export default function Page() {
                 ].map((s, i) => (
                   <div key={s.label}
                     className={`py-5 px-7 text-center ${i > 0 ? "border-l border-white/[0.07]" : ""}`}>
-                    <div className="text-[22px] font-extrabold text-white leading-none"
-                      >{s.val}</div>
+                    <div className="text-[22px] font-extrabold text-white leading-none">{s.val}</div>
                     <div className="text-[11px] text-gray-500 mt-1 font-medium">{s.label}</div>
                   </div>
                 ))}
@@ -763,8 +785,7 @@ export default function Page() {
                 </span>
               </Reveal>
               <Reveal delay={80}>
-                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-6 max-w-3xl"
-                  >
+                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-6 max-w-3xl">
                   Подготовка к экзаменам<br />не должна быть хаосом
                 </h2>
               </Reveal>
@@ -794,8 +815,7 @@ export default function Page() {
                 </span>
               </Reveal>
               <Reveal delay={80}>
-                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-14"
-                  >
+                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-14">
                   Три платформы.<br />Одна экосистема.
                 </h2>
               </Reveal>
@@ -804,7 +824,6 @@ export default function Page() {
                 {PLATFORMS.map((p, i) => (
                   <Reveal key={p.tag} delay={i * 90} className="h-full">
                     <div className={`flex flex-col h-full rounded-2xl p-7 ${p.popular ? "p-card-popular" : "p-card"}`}>
-                      {/* Tags */}
                       <div className="flex items-center gap-2 mb-6">
                         <span className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md
                           ${p.popular
@@ -820,8 +839,7 @@ export default function Page() {
                         )}
                       </div>
 
-                      <h3 className="text-[20px] font-extrabold text-white mb-3 leading-snug"
-                        >{p.title}</h3>
+                      <h3 className="text-[20px] font-extrabold text-white mb-3 leading-snug">{p.title}</h3>
                       <p className="text-[14px] text-gray-400 leading-relaxed flex-1 mb-7">{p.desc}</p>
 
                       <a href={p.href} target="_blank" rel="noopener noreferrer"
@@ -846,8 +864,7 @@ export default function Page() {
                 </span>
               </Reveal>
               <Reveal delay={80}>
-                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-14"
-                  >
+                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-14">
                   Создано для результатов
                 </h2>
               </Reveal>
@@ -880,8 +897,7 @@ export default function Page() {
                 </span>
               </Reveal>
               <Reveal delay={80}>
-                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-16"
-                  >
+                <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-white mb-16">
                   Цифры говорят<br />сами за себя
                 </h2>
               </Reveal>
@@ -916,7 +932,6 @@ export default function Page() {
                 </p>
               </Reveal>
 
-              {/* 4-step flow */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-20">
                 {[
                   { n: "01", title: "Диагностика",       desc: "Выявляем слабые места. Определяем уровень и собираем профиль ошибок." },
@@ -935,7 +950,6 @@ export default function Page() {
                 ))}
               </div>
 
-              {/* Placement groups */}
               <Reveal delay={100}>
                 <div className="rounded-2xl border border-white/[0.06] overflow-hidden"
                   style={{ background: "rgba(255,255,255,0.018)" }}>
@@ -961,7 +975,6 @@ export default function Page() {
                 </div>
               </Reveal>
 
-              {/* Course formats */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                 {COURSE_FORMATS.map((f, i) => (
                   <Reveal key={f.title} delay={i * 100}>
@@ -985,7 +998,6 @@ export default function Page() {
                 ))}
               </div>
 
-              {/* SAT Weekend Bootcamp */}
               <Reveal delay={100} className="mt-8">
                 <div className="relative rounded-2xl p-8 overflow-hidden"
                   style={{ background: "rgba(37,99,235,0.07)", border: "1px solid rgba(59,130,246,0.2)" }}>
@@ -1065,7 +1077,6 @@ export default function Page() {
                   </Reveal>
                 </div>
 
-                {/* Referral card */}
                 <Reveal delay={100}>
                   <div className="rounded-2xl p-8"
                     style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 24px 64px rgba(0,0,0,0.4)" }}>
@@ -1116,7 +1127,6 @@ export default function Page() {
               </Reveal>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Points */}
                 <Reveal delay={0} className="h-full">
                   <div className="f-card rounded-2xl p-7 h-full">
                     <div className="text-2xl mb-5">🏆</div>
@@ -1132,7 +1142,6 @@ export default function Page() {
                   </div>
                 </Reveal>
 
-                {/* Rewards */}
                 <Reveal delay={80} className="h-full">
                   <div className="f-card rounded-2xl p-7 h-full">
                     <div className="text-2xl mb-5">🎁</div>
@@ -1154,7 +1163,6 @@ export default function Page() {
                   </div>
                 </Reveal>
 
-                {/* Leaderboard */}
                 <Reveal delay={160} className="h-full">
                   <div className="f-card rounded-2xl p-7 h-full">
                     <div className="text-2xl mb-5">📊</div>
@@ -1201,7 +1209,6 @@ export default function Page() {
               </Reveal>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                {/* Bonus structure */}
                 <Reveal delay={0}>
                   <div className="f-card rounded-2xl p-8 h-full">
                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-6">Бонусная структура</p>
@@ -1217,7 +1224,6 @@ export default function Page() {
                   </div>
                 </Reveal>
 
-                {/* Teacher leaderboard */}
                 <Reveal delay={100}>
                   <div className="f-card rounded-2xl p-8 h-full">
                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-6">Рейтинг учителей</p>
@@ -1266,8 +1272,8 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-12">
               <div>
                 <a href="#" className="inline-flex mb-5">
-                  <Image src="/Logo white.png" alt="KEZEN ED" width={118} height={36}
-                    className="h-7 w-auto object-contain" />
+                  {/* Footer logo — slightly smaller */}
+                  <LogoImage width={120} height={38} renderSize={336} offsetLeft={-82} />
                 </a>
                 <p className="text-[13px] text-gray-600 leading-relaxed max-w-xs">
                   Ваш надёжный партнёр в подготовке к SAT и IELTS. Комплексные платформы с ИИ.
