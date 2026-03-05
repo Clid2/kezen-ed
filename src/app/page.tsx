@@ -599,8 +599,8 @@ export default function Page() {
         }}>
           <div className="max-w-7xl mx-auto px-5 sm:px-10 h-16 flex items-center justify-between gap-6">
             <a href="#" className="shrink-0 select-none">
-              <Image src="/logo.png" alt="KEZEN ED" width={136} height={40}
-                className="h-8 w-auto object-contain brightness-0 invert" priority />
+              <Image src="/Logo white.png" alt="KEZEN ED" width={136} height={40}
+                className="h-8 w-auto object-contain" priority />
             </a>
 
             <nav className="hidden md:flex items-center gap-7">
@@ -1266,8 +1266,8 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-12">
               <div>
                 <a href="#" className="inline-flex mb-5">
-                  <Image src="/logo.png" alt="KEZEN ED" width={118} height={36}
-                    className="h-7 w-auto object-contain brightness-0 invert" />
+                  <Image src="/Logo white.png" alt="KEZEN ED" width={118} height={36}
+                    className="h-7 w-auto object-contain" />
                 </a>
                 <p className="text-[13px] text-gray-600 leading-relaxed max-w-xs">
                   Ваш надёжный партнёр в подготовке к SAT и IELTS. Комплексные платформы с ИИ.
